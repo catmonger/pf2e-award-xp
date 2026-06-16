@@ -34,8 +34,8 @@ Hooks.once("init", async () => {
     registerWorldSettings();
 
     foundry.applications.sidebar.tabs.ChatLog.CHAT_COMMANDS["award"] = {
-        pattern: Award.COMMAND_PATTERN,
-        callback: (chat, match) => { Award.handleAward(match.input ?? match[0] ?? ""); }
+        rgx: Award.COMMAND_PATTERN,
+        fn: (chat, match) => { Award.handleAward(match.input ?? ""); }
     };
 });
 
